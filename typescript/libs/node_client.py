@@ -94,7 +94,7 @@ class NodeCommClient(CommClient):
             reqSeq = -1
             try:
                 while reqSeq < seq:
-                    data = self.msgq.get(True, 5)
+                    data = self.msgq.get(True, 10)
                     dict = json_helpers.decode(data)
                     reqSeq = dict['request_seq']
                 if cb:
@@ -122,7 +122,7 @@ class NodeCommClient(CommClient):
             reqSeq = -1
             try:
                 while reqSeq < seq:
-                    data = self.msgq.get(True, 5)
+                    data = self.msgq.get(True, 10)
                     dict = json_helpers.decode(data)
                     reqSeq = dict['request_seq']
                 return dict
